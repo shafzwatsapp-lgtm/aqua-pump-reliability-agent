@@ -6,7 +6,7 @@ Built by **SignalSprout** for AI Tinkerers' **Agents, Everywhere** hackathon.
 
 [Open AQUA](https://aqua-pump-command-shafi.shafz.chatgpt.site/) · [Figma design](https://www.figma.com/design/mMb88S1Lu81xu80SW13P7O?node-id=2-180)
 
-The hosted site is currently private. This repository includes the runnable prototype. All plant measurements, maintenance records and asset history are synthetic.
+The hosted site is public. Open the operations desk to explore synthetic evidence; sign in with ChatGPT for live agent investigations and your own saved cases. Personal Teams notifications remain restricted to the configured account. This repository includes the runnable prototype. All plant measurements, maintenance records and asset history are synthetic.
 
 ## Try the workflow
 

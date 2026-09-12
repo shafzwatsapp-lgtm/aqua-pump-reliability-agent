@@ -5,7 +5,7 @@ Team: SignalSprout. Ghenza handed team leadership to Shafi Abdulla on September 
 - Public source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
 - Public social post: https://www.linkedin.com/feed/update/urn:li:activity:7504492082250760192/ — published on Shafi Abdulla's profile with visibility Anyone.
 - Unlisted demo: https://youtu.be/5srqNqNeze4 — 110.02 seconds; YouTube displays 1:51. Uploaded and published Unlisted on Shafi's personal channel with approval.
-- Owner-private site: https://aqua-pump-command-shafi.shafz.chatgpt.site
+- Public live demo: https://aqua-pump-command-shafi.shafz.chatgpt.site
 - Operations desk: `/desk`
 - Portal: https://abu-dhabi.aitinkerers.org/hackathons/h_jFmTEqyJAZQ
 - Handbook: https://abu-dhabi.aitinkerers.org/hackathons/h_jFmTEqyJAZQ/handbook
@@ -51,7 +51,7 @@ Source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
 
 Demo: https://youtu.be/5srqNqNeze4
 
-The Site remains private pending review.
+The Site is public with Shafi's explicit approval. Live reasoning and saved cases require sign-in; personal Teams sending remains restricted to the configured account.
 
 @AITinkerers @OpenAI @CopilotKit @openrouter @exaailabs @auth0 @ambiguousio @triggerdotdev @mozillaAI @googlecloud #AgentsEverywhere
 
