@@ -29,7 +29,7 @@ All measurements and maintenance records are synthetic. Support scores and FMEA 
 
 ## Verified demonstration
 
-Thirteen automated checks pass. Live baseline, contradictory-finding and sensor-quality requests returned actual evidence-tool traces. A stale approval returned HTTP 409; repeating an identical approved task saved it only once. In the browser, cancellation left history unchanged, approval added a task, and the same task was present after reload. Voice compatibility and production model behavior are not fully validated.
+Fifteen automated checks pass. Live baseline, contradictory-finding and sensor-quality requests returned actual evidence-tool traces. A stale approval returned HTTP 409; repeating an identical approved task saved it only once. In the browser, cancellation left history unchanged, approval added a task, and the same task was present after reload. Voice compatibility and production model behavior are not fully validated.
 
 ## Tools and prior work
 
@@ -57,4 +57,4 @@ The Site remains private pending review.
 
 ## Remaining submission items
 
-The entry is submitted with source, under-two-minute video, Figma and public social URLs. The portal confirmed completion and judging eligibility. The post-submission event-photo invitation was optional and skipped. The video is verified Unlisted and accessible through YouTube's unauthenticated oEmbed endpoint, despite a portal visibility-check warning. Microsoft Teams notification delivery is still being verified; do not claim a conversational Teams bot.
+The entry is submitted with source, under-two-minute video, Figma and public social URLs. The portal confirmed completion and judging eligibility. The post-submission event-photo invitation was optional and skipped. The video is verified Unlisted and accessible through YouTube's unauthenticated oEmbed endpoint, despite a portal visibility-check warning. Microsoft Teams notification delivery was verified at 16:07 UAE: the approved synthetic task arrived in the account owner's private Workflows bot chat. The application was deployed with server-side configuration. This is an explicit personal notification integration, not a conversational Teams bot.
