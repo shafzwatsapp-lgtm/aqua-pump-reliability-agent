@@ -86,13 +86,13 @@ node --experimental-strip-types tests/agent.test.mjs
 node node_modules/typescript/bin/tsc --noEmit
 ```
 
-Eleven automated checks pass: FFT recovery, scenario rankings, contradictory findings, signal quality, waveform/historian consistency, bounded support and valid citations, real tool-result consumption, rejected calls, execution limits, proposal boundaries and mandatory evidence review.
+Thirteen automated checks cover FFT recovery, scenario rankings, contradictory findings, signal quality, waveform/historian consistency, bounded support and valid bracketed citations, real tool-result consumption, rejected calls, execution limits, proposal boundaries, mandatory evidence review, and bounded recovery from empty or truncated model replies.
 
 For an optional live local integration run, start the server with your key, then run:
 `node --experimental-strip-types scripts/verify-demo.mjs`.
 This uses model credits and creates explicitly labelled synthetic verification records in the local demo account. It checks a live baseline investigation, a contrary finding, invalid sensor evidence, stale approval rejection, persistence and idempotent retry. Results are written to ignored `outputs/live-verification.json`.
 
-Verified locally on September 12, 2026: all three live agent scenarios returned actual evidence-tool traces; a stale approval returned HTTP 409; an approved task was read back once after repeated submission. Browser sign-in, a six-tool investigation and saved-history retrieval were also observed. One earlier model answer was rejected by verification; subsequent live checks passed. Production and browser voice recognition are not claimed as fully validated.
+Verified locally on September 12, 2026: all three live agent scenarios returned actual evidence-tool traces; a stale approval returned HTTP 409; an approved task was read back once after repeated submission. Browser sign-in, a six-tool investigation and saved-history retrieval were also observed. Earlier empty or invalid-citation replies exposed a recovery issue; bounded repair was added and subsequent live checks passed. Model availability and response quality can still vary. Production and browser voice recognition are not claimed as fully validated.
 
 ## Engineering limits
 

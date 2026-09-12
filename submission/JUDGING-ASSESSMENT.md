@@ -33,5 +33,4 @@ Adding Hermes or more sponsor tools alone would not resolve these gaps.
 
 The [official handbook](https://abu-dhabi.aitinkerers.org/hackathons/h_jFmTEqyJAZQ/handbook) requires public source, a video no longer than two minutes, a public social post and team contribution statements. Only team lead Ghenza can submit in the current portal.
 
-The site remains private at the user's request. The public GitHub repository has been created; source publication, video/social deliverables and factual contribution statements must be verified before claiming the final entry is submitted.
-
+The site remains private at the user's request. Source has been published at https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent. Video/social deliverables and factual contribution statements must be verified before claiming the final entry is submitted. Only team lead Ghenza can submit through the portal.

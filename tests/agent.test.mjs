@@ -31,4 +31,19 @@ test('fabricated citations and answers without evidence are rejected',async()=>{
 test('a proposal cannot replace evidence review and uncited answers are rejected',async()=>{
  await assert.rejects(runEvidenceAgent({result:analyse('suction'),question:'plan',history:[],complete:async(_,r)=>r?{content:'Inspect it [SC-01]'}:{tool_calls:[call('x','propose_inspection',{hypothesisId:'suction'})]}}),/MODEL_NO_EVIDENCE/);
  await assert.rejects(runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async(_,r)=>r?{content:'Pressure fell.'}:{tool_calls:[call('x','read_process_trends')]}}),/MODEL_CITATION/);
+ await assert.rejects(runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async(_,r)=>r?{content:'Pressure fell SC-01.'}:{tool_calls:[call('x','read_process_trends')]}}),/MODEL_CITATION/);
+});
+test('truncated answers are repaired before they are shown',async()=>{
+ const r=await runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async(_,round)=>round===0?{tool_calls:[call('x','read_process_trends')]}:round===1?{content:'Pressure fell [SC-01] because',finish_reason:'length'}:{content:'Pressure fell [SC-01]. Validate the instrument before confirming a cause.',finish_reason:'stop'}});
+ assert.match(r.reply,/Validate the instrument/);
+ await assert.rejects(runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async()=>({content:'[SC-01]',finish_reason:'length'})}),/MODEL/);
+});
+test('empty replies and invalid reference labels can recover within the fixed round budget',async()=>{
+ const r=await runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async(_,round)=>{
+  if(round===0)return {content:''};
+  if(round===1)return {tool_calls:[call('evidence','read_process_trends')]};
+  if(round===2)return {content:'Pressure fell [Rank].'};
+  return {content:'Pressure fell [SC-01]. Validate the reading before confirming the cause.'};
+ }});assert.equal(r.trace.length,1);assert.match(r.reply,/SC-01/);
+ await assert.rejects(runEvidenceAgent({result:analyse('suction'),question:'why',history:[],complete:async()=>({content:''})}),/MODEL/);
 });
