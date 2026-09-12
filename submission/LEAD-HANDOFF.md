@@ -3,6 +3,7 @@
 Team: SignalSprout. Submission remains on hold for Shafi's front-page and judging review. Only Ghenza can submit in the current portal.
 
 - Public source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
+- Unlisted demo: https://youtu.be/5srqNqNeze4 — 110.02 seconds; YouTube displays 1:51. Uploaded and published Unlisted on Shafi's personal channel with approval.
 - Owner-private site: https://aqua-pump-command-shafi.shafz.chatgpt.site
 - Operations desk: `/desk`
 - Portal: https://abu-dhabi.aitinkerers.org/hackathons/h_jFmTEqyJAZQ
@@ -47,10 +48,12 @@ We built AQUA for #AgentsEverywhere: a pump reliability investigation agent for 
 
 Source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
 
-Demo video: add the verified video URL before posting. The Site remains private pending review.
+Demo: https://youtu.be/5srqNqNeze4
+
+The Site remains private pending review.
 
 @AITinkerers @OpenAI @CopilotKit @openrouter @exaailabs @auth0 @ambiguousio @triggerdotdev @mozillaAI @googlecloud #AgentsEverywhere
 
 ## Remaining submission items
 
-Review the front page and provisional 16/20 assessment. Confirm both contributions and prior-work disclosure. Add a public/unlisted video URL of at most two minutes, publish the reviewed social copy and add its public URL. Ghenza then submits through the portal. No entry has been submitted by this workflow.
+Review the front page and provisional 16/20 assessment. Confirm both contributions and prior-work disclosure. Publish the reviewed social copy and add its public URL. The source and under-two-minute video links are ready. Ghenza then submits through the portal. No entry has been submitted by this workflow.
