@@ -1,6 +1,6 @@
 # AQUA — lead handoff
 
-Team: SignalSprout. Shafi authorized proceeding with submission on September 12, 2026 and explicitly asked to keep Ghenza as team lead. The signed-in member account cannot edit or submit the entry; Ghenza must perform the final portal submission.
+Team: SignalSprout. Ghenza handed team leadership to Shafi Abdulla on September 12, 2026. The portal confirmed Shafi as Lead and Ghenza as Member. AQUA was submitted successfully and marked complete, 5 of 5 required items, and eligible for judging before the deadline.
 
 - Public source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
 - Public social post: https://www.linkedin.com/feed/update/urn:li:activity:7504492082250760192/ — published on Shafi Abdulla's profile with visibility Anyone.
@@ -41,7 +41,7 @@ Disclose the existing framework/UI/hosting starter. Do not claim every component
 
 Shafi Abdulla: water-utility problem framing; requirements for centrifugal-pump, SCADA, vibration and maintenance evidence; synthetic-data direction; operations-desk and interactive-agent product/design direction. Directed Codex-assisted development, verification and submission preparation using OpenRouter and Figma.
 
-Ghenza Samad: SignalSprout team lead, responsible for the final team submission. No implementation or API work is attributed without confirmation from her.
+Ghenza Samad: initial SignalSprout team lead; coordinated the handover of final submission responsibility to Shafi. No implementation or API work is attributed without confirmation from her.
 
 ## Published social announcement
 
@@ -57,4 +57,4 @@ The Site remains private pending review.
 
 ## Remaining submission items
 
-Source, under-two-minute video and public social URLs are ready. Ghenza should review the factual contribution statements and prior-work disclosure, paste the fields above into the portal, and submit before 16:30 UAE. No entry has been submitted by this workflow. Microsoft Teams notification integration is being investigated; do not claim it is connected or a conversational Teams bot.
+The entry is submitted with source, under-two-minute video, Figma and public social URLs. The portal confirmed completion and judging eligibility. The post-submission event-photo invitation was optional and skipped. The video is verified Unlisted and accessible through YouTube's unauthenticated oEmbed endpoint, despite a portal visibility-check warning. Microsoft Teams notification delivery is still being verified; do not claim a conversational Teams bot.

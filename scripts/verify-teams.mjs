@@ -1,0 +1,34 @@
+// Explicit integration test: creates local synthetic records and sends ONE card
+// to the personal Teams destination configured on the local development server.
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {analyse} from '../lib/pump.ts';
+import {proposalFor} from '../lib/agent.ts';
+const base='http://localhost:5173';
+const signin=await fetch(base+'/signin-with-chatgpt?return_to=/',{redirect:'manual'});
+assert.equal(signin.status,302);
+const cookie=signin.headers.get('set-cookie')?.split(';')[0];assert.ok(cookie);
+const headers={'Content-Type':'application/json',Origin:base,Cookie:cookie};
+const post=async(path,body,customHeaders=headers)=>{const r=await fetch(base+path,{method:'POST',headers:customHeaders,body:JSON.stringify(body)});return {http:r.status,...await r.json()};};
+assert.equal((await (await fetch(base+'/api/teams',{headers})).json()).enabled,true);
+const finding=async(value)=>post('/api/cases',{id:crypto.randomUUID(),scenario:'suction',kind:'finding',finding:value,note:'Teams integration verification: synthetic personal-chat test.'});
+assert.equal((await finding('none')).http,200);
+const proposal=proposalFor(analyse('suction'));
+const task={id:crypto.randomUUID(),scenario:'suction',kind:'task',finding:'none',approved:true,title:'Synthetic Teams test: '+proposal.title,hypothesisId:proposal.hypothesisId,revision:proposal.revision};
+assert.equal((await post('/api/cases',task)).http,200);
+assert.equal((await post('/api/teams',{id:task.id},{'Content-Type':'application/json',Origin:base})).http,401);
+assert.equal((await post('/api/cases',{...task,id:'teams-'+crypto.randomUUID()})).http,400);
+assert.equal((await finding('clear')).http,200);
+assert.equal((await post('/api/teams',{id:task.id})).http,409);
+assert.equal((await finding('none')).http,200);
+const first=await post('/api/teams',{id:task.id});
+await mkdir('outputs',{recursive:true});
+await writeFile('outputs/live-teams-verification.json',JSON.stringify({taskId:task.id,first},null,2));
+console.log(JSON.stringify({taskId:task.id,first}));
+assert.equal(first.status,'accepted');
+const repeat=await post('/api/teams',{id:task.id});assert.equal(repeat.status,'accepted');assert.match(repeat.message,/not sent again/);
+const history=await (await fetch(base+'/api/cases?scenario=suction',{headers})).json();
+assert.equal(history.events.find(e=>e.id===task.id).body.teamsDelivery,'accepted');
+assert.equal(history.events.some(e=>e.kind==='teams_delivery'),false);
+await writeFile('outputs/live-teams-verification.json',JSON.stringify({taskId:task.id,first,repeat,checks:['signed-out rejected','reserved IDs rejected','stale task rejected','workflow accepted','repeat suppressed','delivery read back']},null,2));
+console.log('Teams integration checks passed. Verify the actual card in Microsoft Teams.');

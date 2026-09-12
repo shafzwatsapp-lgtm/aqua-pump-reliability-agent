@@ -29,6 +29,7 @@ Five repeatable scenarios cover suction restriction, bearing deterioration, post
 - An OpenRouter model that selects evidence tools, consumes their results and returns cited explanations and inspection drafts.
 - Structured findings that revise the analysis. Invalid or loose-mounted vibration channels withhold derived features.
 - Engineer approval, evidence-revision checks, atomic rejection of stale approvals, idempotent saves and database read-back.
+- Explicit Teams notifications for saved approved inspections, restricted to the configured AQUA account and its personal Microsoft Workflows destination. Changed evidence blocks sharing; delivery attempts are recorded and repeated sends are suppressed.
 - Browser speech recognition for an editable transcript, optional read-aloud, and a keyboard input path.
 - JSON export and optional WebMCP hooks for reading the current investigation and selecting a scenario.
 
@@ -66,6 +67,10 @@ For live reasoning, copy `.env.example` to ignored `.env` and set `OPENROUTER_AP
 
 Keep keys server-side. The model provider receives synthetic evidence and recent conversation. Never place credentials in source control or browser code.
 
+For personal Teams notifications, create a Microsoft Workflows incoming-webhook flow addressed only to yourself. Use **Chat with Flow bot** and your own Microsoft account as recipient; the generic group-chat action cannot post to Teams' special "You" self-chat. Set `AQUA_TEAMS_WEBHOOK_URL` as a server-side secret and `AQUA_TEAMS_ALLOWED_EMAIL` to the exact authenticated AQUA account email. The local simulated account is `seedy@sites.test`; production must use your real AQUA identity. The webhook is a posting credential: do not publish it or paste it into the agent.
+
+After approving and saving an inspection, open Maintenance history and choose **Send to my Teams chat**. HTTP acceptance means Microsoft received the request; check Teams or the workflow run history to confirm delivery. Accepted, unknown and failed attempts are not automatically retried. After a confirmed workflow failure, fix its configuration and deliberately resubmit the failed run in Microsoft Workflows; check for an existing card first. This is a notification integration, not a conversational Teams bot or a Maximo work-order connector.
+
 Build and initialize a fresh local database:
 
 ```sh
@@ -83,14 +88,17 @@ On this Windows environment, the npm wrapper needed the official npm entry point
 ```sh
 node --experimental-strip-types tests/pump.test.mjs
 node --experimental-strip-types tests/agent.test.mjs
+node --experimental-strip-types tests/teams.test.mjs
 node node_modules/typescript/bin/tsc --noEmit
 ```
 
-Thirteen automated checks cover FFT recovery, scenario rankings, contradictory findings, signal quality, waveform/historian consistency, bounded support and valid bracketed citations, real tool-result consumption, rejected calls, execution limits, proposal boundaries, mandatory evidence review, and bounded recovery from empty or truncated model replies.
+Fifteen automated checks cover FFT recovery, scenario rankings, contradictory findings, signal quality, waveform/historian consistency, bounded support and valid bracketed citations, real tool-result consumption, rejected calls, execution limits, proposal boundaries, mandatory evidence review, bounded recovery from empty or truncated model replies, personal Teams account restrictions, and approved-task card boundaries.
 
 For an optional live local integration run, start the server with your key, then run:
 `node --experimental-strip-types scripts/verify-demo.mjs`.
 This uses model credits and creates explicitly labelled synthetic verification records in the local demo account. It checks a live baseline investigation, a contrary finding, invalid sensor evidence, stale approval rejection, persistence and idempotent retry. Results are written to ignored `outputs/live-verification.json`.
+
+`node --experimental-strip-types scripts/verify-teams.mjs` is an explicit integration test that creates local synthetic records and sends one real test card to your configured personal destination. It checks signed-out rejection, reserved delivery IDs, stale-task rejection, workflow acceptance, duplicate suppression and history read-back. It does not verify final delivery; inspect the Microsoft workflow run and actual chat card separately.
 
 Verified locally on September 12, 2026: all three live agent scenarios returned actual evidence-tool traces; a stale approval returned HTTP 409; an approved task was read back once after repeated submission. Browser sign-in, a six-tool investigation and saved-history retrieval were also observed. Earlier empty or invalid-citation replies exposed a recovery issue; bounded repair was added and subsequent live checks passed. Model availability and response quality can still vary. Production and browser voice recognition are not claimed as fully validated.
 
