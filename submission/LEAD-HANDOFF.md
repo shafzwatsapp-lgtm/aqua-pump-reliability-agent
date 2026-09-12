@@ -1,8 +1,9 @@
 # AQUA — lead handoff
 
-Team: SignalSprout. Submission remains on hold for Shafi's front-page and judging review. Only Ghenza can submit in the current portal.
+Team: SignalSprout. Shafi authorized proceeding with submission on September 12, 2026 and explicitly asked to keep Ghenza as team lead. The signed-in member account cannot edit or submit the entry; Ghenza must perform the final portal submission.
 
 - Public source: https://github.com/shafzwatsapp-lgtm/aqua-pump-reliability-agent
+- Public social post: https://www.linkedin.com/feed/update/urn:li:activity:7504492082250760192/ — published on Shafi Abdulla's profile with visibility Anyone.
 - Unlisted demo: https://youtu.be/5srqNqNeze4 — 110.02 seconds; YouTube displays 1:51. Uploaded and published Unlisted on Shafi's personal channel with approval.
 - Owner-private site: https://aqua-pump-command-shafi.shafz.chatgpt.site
 - Operations desk: `/desk`
@@ -36,13 +37,13 @@ OpenAI Codex assisted development and verification. OpenRouter provides model ac
 
 Disclose the existing framework/UI/hosting starter. Do not claim every component was built from scratch. The team must confirm which original AQUA work was completed within the official event window.
 
-## Contribution statements to complete
+## Team contribution statements
 
-Shafi Abdulla: water-utility problem framing, pump/SCADA/vibration/maintenance requirements, synthetic-data direction and operations-desk design direction. Confirm any additional personal responsibilities.
+Shafi Abdulla: water-utility problem framing; requirements for centrifugal-pump, SCADA, vibration and maintenance evidence; synthetic-data direction; operations-desk and interactive-agent product/design direction. Directed Codex-assisted development, verification and submission preparation using OpenRouter and Figma.
 
-Ghenza Samad: contribution statement still required from the team; do not invent one.
+Ghenza Samad: SignalSprout team lead, responsible for the final team submission. No implementation or API work is attributed without confirmation from her.
 
-## Social copy for review
+## Published social announcement
 
 We built AQUA for #AgentsEverywhere: a pump reliability investigation agent for water-utility engineers. It connects synthetic process, vibration and maintenance evidence, revises its assessment when an engineer challenges it, and saves the next inspection only after approval.
 
@@ -56,4 +57,4 @@ The Site remains private pending review.
 
 ## Remaining submission items
 
-Review the front page and provisional 16/20 assessment. Confirm both contributions and prior-work disclosure. Publish the reviewed social copy and add its public URL. The source and under-two-minute video links are ready. Ghenza then submits through the portal. No entry has been submitted by this workflow.
+Source, under-two-minute video and public social URLs are ready. Ghenza should review the factual contribution statements and prior-work disclosure, paste the fields above into the portal, and submit before 16:30 UAE. No entry has been submitted by this workflow. Microsoft Teams notification integration is being investigated; do not claim it is connected or a conversational Teams bot.
